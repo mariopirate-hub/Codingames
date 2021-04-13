@@ -1,4 +1,5 @@
-﻿using Expert.Excercice;
+﻿using Expert.A_Tester;
+using Expert.Excercice;
 using System;
 using static Expert.PI;
 
@@ -50,6 +51,17 @@ namespace Expert
             {
                 Console.WriteLine(NombrePaires.Count(4));
                 Console.WriteLine(NombrePaires.Count(10000));
+            }
+            if(args[0] == "formula")
+            {
+                string path = "/tmp/documents/";
+                string fName = "universe-formula";
+                string target = Universe_Formula.Find(path, fName, "");
+
+                target = target.Replace("\\", "/");
+
+                Console.Write(target);
+
             }
             Console.ReadKey();
         }
