@@ -1,6 +1,7 @@
 ﻿using Expert.A_Tester;
 using Expert.Excercice;
 using System;
+using System.Collections.Generic;
 using static Expert.PI;
 
 namespace Expert
@@ -9,65 +10,81 @@ namespace Expert
     {
         static void Main(string[] args)
         {
-            if(args[0] == "Billet")
+            switch (args[0])
             {
-                long s = 1;
+                case "Billet":
+                    long s = 1;
 
-                Change change = CaisseAutomatique.OptimalChange(s);
+                    Change change = CaisseAutomatique.OptimalChange(s);
 
-                Console.WriteLine("monnaie " + s);
+                    Console.WriteLine("monnaie " + s);
 
-                Console.WriteLine("Coin(s) 2€: " + change.coin2);
-                Console.WriteLine("Bill(s) 5€: " + change.bill5);
-                Console.WriteLine("Bill(s) 10€: " + change.bill10);
+                    Console.WriteLine("Coin(s) 2€: " + change.coin2);
+                    Console.WriteLine("Bill(s) 5€: " + change.bill5);
+                    Console.WriteLine("Bill(s) 10€: " + change.bill10);
 
-                
-            }
-            if(args[0] == "Danse")
-            {
-                Console.WriteLine(NouvelleDanse.GetPositionAt(3)); //-4
-                Console.WriteLine(NouvelleDanse.GetPositionAt(100000)); //-5
-                Console.WriteLine(NouvelleDanse.GetPositionAt(2147483647)); //1
-              
-            }
-            if(args[0] == "PI")
-            {
-                var rands = new Point[100000];
-                Random random = new Random();
+                    break;
+                case "Danse":
 
-                for (int i = 0; i < rands.Length; i++)
-                {
-                    Point p = new Point();
-                    p.x = random.NextDouble(); //x
-                    p.y = random.NextDouble(); //y
-                    rands[i] = p;
-                }
+                    Console.WriteLine(NouvelleDanse.GetPositionAt(3)); //-4
+                    Console.WriteLine(NouvelleDanse.GetPositionAt(100000)); //-5
+                    Console.WriteLine(NouvelleDanse.GetPositionAt(2147483647)); //1
 
-                double Test = PI.Approx(rands);
+                    break;
+                case "PI":
 
-                Console.WriteLine(Test);
-            }
-            if(args[0] == "Paire")
-            {
-                Console.WriteLine(NombrePaires.Count(4));
-                Console.WriteLine(NombrePaires.Count(10000));
-            }
-            if(args[0] == "formula")
-            {
-                string path = "/tmp/documents/";
-                string fName = "universe-formula";
-                string target = Universe_Formula.Find(path, fName, "");
+                    var rands = new Point[100000];
+                    Random random = new Random();
 
-                target = target.Replace("\\", "/");
+                    for (int i = 0; i < rands.Length; i++)
+                    {
+                        Point p = new Point();
+                        p.x = random.NextDouble(); //x
+                        p.y = random.NextDouble(); //y
+                        rands[i] = p;
+                    }
 
-                Console.Write(target);
+                    double Test = PI.Approx(rands);
 
-            }
-            if(args[0] == "IsTwin")
-            {
-                Console.WriteLine(IsTwin.isTwin("Hello", "world")); //Faux 372 392
-                Console.WriteLine(IsTwin.isTwin("acb", "bca")); // Vrai
-                Console.WriteLine(IsTwin.isTwin("Lookout", "Outloook")); //Vrai
+                    Console.WriteLine(Test);
+                    break;
+
+                case "Paire":
+
+                    Console.WriteLine(NombrePaires.Count(4));
+                    Console.WriteLine(NombrePaires.Count(10000));
+                    break;
+
+                case "formula":
+
+                    string path = "/tmp/documents/";
+                    string fName = "universe-formula";
+                    string target = Universe_Formula.Find(path, fName, "");
+
+                    target = target.Replace("\\", "/");
+
+                    Console.Write(target);
+
+                    break;
+
+                case "IsTwin":
+
+                    Console.WriteLine(IsTwin.isTwin("Hello", "world")); //Faux 372 392
+                    Console.WriteLine(IsTwin.isTwin("acb", "bca")); // Vrai
+                    Console.WriteLine(IsTwin.isTwin("Lookout", "Outloook")); //Vrai
+                    break;
+
+                case "Pierre":
+
+                    List<int> stones = new List<int>(new int[] { 1, 1 });
+                    Console.WriteLine(StoneMagic.Magic(stones));//1
+
+                    stones = new List<int>(new int[] { 1, 1, 5 });
+                    Console.WriteLine(StoneMagic.Magic(stones));//2
+
+                    stones = new List<int>(new int[] { 1, 1, 2, 3, 3, 3, 5, 6, 6, 6, 6, 6, 6, 6, 6, 9 });
+                    Console.WriteLine(StoneMagic.Magic(stones));//2
+                    break;
             }
             Console.ReadKey();
         }
