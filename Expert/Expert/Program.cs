@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Expert.Excercice;
+using System;
 using static Expert.PI;
 
 namespace Expert
@@ -44,6 +45,11 @@ namespace Expert
                 double Test = PI.Approx(rands);
 
                 Console.WriteLine(Test);
+            }
+            if(args[0] == "Paire")
+            {
+                Console.WriteLine(NombrePaires.Count(4));
+                Console.WriteLine(NombrePaires.Count(10000));
             }
             Console.ReadKey();
         }
