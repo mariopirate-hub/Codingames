@@ -63,6 +63,12 @@ namespace Expert
                 Console.Write(target);
 
             }
+            if(args[0] == "IsTwin")
+            {
+                Console.WriteLine(IsTwin.isTwin("Hello", "world")); //Faux 372 392
+                Console.WriteLine(IsTwin.isTwin("acb", "bca")); // Vrai
+                Console.WriteLine(IsTwin.isTwin("Lookout", "Outloook")); //Vrai
+            }
             Console.ReadKey();
         }
     }
