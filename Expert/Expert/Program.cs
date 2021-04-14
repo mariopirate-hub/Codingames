@@ -10,7 +10,7 @@ namespace Expert
     {
         static void Main(string[] args)
         {
-            switch (args[0])
+            switch (Console.ReadLine())
             {
                 case "Billet":
                     long s = 1;
@@ -84,6 +84,31 @@ namespace Expert
 
                     stones = new List<int>(new int[] { 1, 1, 2, 3, 3, 3, 5, 6, 6, 6, 6, 6, 6, 6, 6, 9 });
                     Console.WriteLine(StoneMagic.Magic(stones));//2
+                    break;
+
+                case "Message":
+
+                    string[] parts = { "Ab", "bcZ" };
+                    Console.WriteLine(RebuilMessage.RebuildMessage(parts));
+
+                     parts = new string[]  { "*====#", "X-+-+-+-+-+-Z","#______X", "A........*====#______X-+-+-+-+-+-Z" };
+                    Console.WriteLine(RebuilMessage.RebuildMessage(parts));
+                    break;
+
+                case "Filter":
+                    var strings = new List<string>();
+                    var filteredStrings = new Filtre().Filter(strings);
+
+                    strings.Add("Gurt");
+                    strings.Add("Lobster");
+                    strings.Add("Litch");
+                    strings.Add("Doe");
+
+                    foreach(var str in filteredStrings)
+                    {
+                        Console.WriteLine(str);
+                    }
+
                     break;
             }
             Console.ReadKey();
