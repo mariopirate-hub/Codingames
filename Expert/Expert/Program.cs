@@ -23,6 +23,9 @@ namespace Expert
                     Console.WriteLine("Bill(s) 5€: " + change.bill5);
                     Console.WriteLine("Bill(s) 10€: " + change.bill10);
 
+                    long result = change.coin2 * 2 + change.bill5 * 5 + change.bill10 * 10;
+                    Console.WriteLine("\nChange given = " + result);
+
                     break;
                 case "Danse":
 
