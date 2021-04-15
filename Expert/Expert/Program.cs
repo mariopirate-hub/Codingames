@@ -8,7 +8,7 @@ namespace Expert
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             switch (Console.ReadLine())
             {
@@ -111,6 +111,25 @@ namespace Expert
                     {
                         Console.WriteLine(str);
                     }
+
+                    break;
+
+                case "Solde":
+                    int[] prices = { 100, 400, 200 };
+                    Console.WriteLine(Solde.CalculateTotalPrice(prices, 20));
+
+                    break;
+
+                case "Fizz":
+                    Dictionary<int, string> map = new Dictionary<int, string>();
+
+                    map[3] = "FIZZ";
+                    map[4] = "BUZZ";
+
+                    Console.WriteLine(FizzBuzz.fizzBuzz(5, map)); //5
+                    Console.WriteLine(FizzBuzz.fizzBuzz(3, map)); //FIZZ
+                    Console.WriteLine(FizzBuzz.fizzBuzz(8, map)); //BUZZ
+                    Console.WriteLine(FizzBuzz.fizzBuzz(12, map)); //FIZZBUZZ
 
                     break;
             }
