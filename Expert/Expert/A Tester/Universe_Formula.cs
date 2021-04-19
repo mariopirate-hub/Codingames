@@ -10,7 +10,7 @@ namespace Expert.A_Tester
         public static string Find(string path, string fName, string chemin)
         {
 
-            if (chemin == "")
+            if (chemin == null)
             {
                 foreach (string sDirectoryName in Directory.GetDirectories(path))
                 {
@@ -25,22 +25,14 @@ namespace Expert.A_Tester
 
                     }
 
-                    if (sDirectoryName.Contains("\\"))
-                    {
-                        string tempo = sDirectoryName.Replace("\\", "/");
 
-                        tempo = Find(tempo, fName, chemin);
+                    string tempo = sDirectoryName.Replace("\\", "/");
 
-                        if (tempo != "") return tempo;
+                    tempo = Find(tempo, fName, chemin);
 
-                    }
+                    if (tempo != "") return tempo;
 
-                    else
-                    {
 
-                        string tempo = Find(sDirectoryName, fName, chemin);
-                        if (tempo != "") return tempo;
-                    }
 
                 }
 

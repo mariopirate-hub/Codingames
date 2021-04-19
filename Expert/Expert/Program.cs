@@ -62,9 +62,11 @@ namespace Expert
 
                     string path = "/tmp/documents/";
                     string fName = "universe-formula";
-                    string target = Universe_Formula.Find(path, fName, "");
+                    string target = Universe_Formula.Find(path, fName, null);
 
                     target = target.Replace("\\", "/");
+
+                    
 
                     Console.Write(target);
 
@@ -130,6 +132,25 @@ namespace Expert
                     Console.WriteLine(FizzBuzz.fizzBuzz(3, map)); //FIZZ
                     Console.WriteLine(FizzBuzz.fizzBuzz(8, map)); //BUZZ
                     Console.WriteLine(FizzBuzz.fizzBuzz(12, map)); //FIZZBUZZ
+
+                    break;
+
+                case "Encode":
+                    string plainText = "aabaa";
+                    Console.WriteLine(Occurence.Encode(plainText)); // 2a1b2a
+
+                    plainText = "aaaabcccaaa";
+                    Console.WriteLine(Occurence.Encode(plainText)); //4a1b3c3a
+
+                    break;
+                case "Carton":
+                    int[] boxesA = { 90 };
+                    int[] boxesB = { 130,160 };
+                    int[] boxesC = { 160 };
+                    string[] deplacement = Carton.Solve(boxesA, boxesB, boxesC);
+
+                    foreach (string d in deplacement)
+                        Console.WriteLine(d);
 
                     break;
             }
